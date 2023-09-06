@@ -20,8 +20,6 @@
   border: 2px solid #1a73e8;
 }
 
-/*#1a73e8;*/
-
 .login-form h2 {
   margin-bottom: 20px;
 }
@@ -41,7 +39,7 @@
 }
 
 .input-container-label-pass {
-  width: 100%; /*ddas*/
+  width: 100%;
   padding: 10px;
   border: none;
   border-radius: 5px;
