@@ -1,0 +1,20 @@
+/*.results-container {
+  display: flex;
+}*/
+
+/*.search-result {
+  padding: 30px;
+  margin-right: 560px;
+  margin-top: -430px;
+  margin-left: 600px;
+  border-radius: 10px;
+  border: 1px solid gainsboro;
+}*/
+
+.search-result {
+  margin-top: 100px;
+}
+
+.results-text {
+  color: #f5f5f5;
+}
