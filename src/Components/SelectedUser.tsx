@@ -19,21 +19,23 @@ const UserProfile: React.FC<UserProfileProps> = ({
   following
 }) => {
   return (
-    <div className="user-profile">
-      <img
-        src={avatarUrl}
-        alt={`Avatar de ${username}`}
-        className="avatar-user"
-      />
-      <h2 className="name-user">{name}</h2>
-      <p className="username-user">@{username}</p>
-      <p className="bio-user">{bio}</p>
-      <div className="stats">
-        <div className="followers">
-          <span className="count-user">{followers}</span> Followers
-        </div>
-        <div className="following">
-          <span className="count-user">{following}</span> Following
+    <div>
+      <div className="user-profile">
+        <img
+          src={avatarUrl}
+          alt={`Avatar de ${username}`}
+          className="avatar-user"
+        />
+        <h2 className="name-user">{name}</h2>
+        <p className="username-user">@{username}</p>
+        <p className="bio-user">{bio}</p>
+        <div className="stats">
+          <div className="followers">
+            <span className="count-user">{followers}</span> Followers
+          </div>
+          <div className="following">
+            <span className="count-user">{following}</span> Following
+          </div>
         </div>
       </div>
     </div>
