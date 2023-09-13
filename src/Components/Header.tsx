@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useAuth } from '../Auth/AuthContext'
-import { useNavigate } from 'react-router-dom' // Importa useNavigate en lugar de useHistory
+import { useNavigate } from 'react-router-dom'
 import '../Css/Header.css'
 
 const Header: React.FC = () => {
@@ -11,7 +11,7 @@ const Header: React.FC = () => {
   const [isSecondDropdownOpen, setIsSecondDropdownOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState('usuarios')
   const secondDropdownRef = useRef<HTMLDivElement | null>(null)
-  const navigate = useNavigate() // Utiliza useNavigate en lugar de useHistory
+  const navigate = useNavigate()
 
   const handleLogout = () => {
     dispatch({ type: 'LOGOUT' })

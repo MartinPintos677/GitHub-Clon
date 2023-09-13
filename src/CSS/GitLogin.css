@@ -74,8 +74,8 @@
   margin-bottom: 10px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 400px) {
   .login-container {
-    margin-top: 50px;
+    margin-top: -10px;
   }
 }
