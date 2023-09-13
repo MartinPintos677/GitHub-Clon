@@ -1,17 +1,13 @@
-import { useState } from 'react'
+//import { useState } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Default from '../src/Pages/Default'
 import User from '../src/Components/User'
-import CountResults from '../src/Components/CountResults'
 import { useAuth } from './Auth/AuthContext'
+import UserList from '../src/Components/UsersList'
 import './App.css'
 
 function App() {
   const { state } = useAuth()
-  const [searchCounts, setSearchCounts] = useState({
-    userCount: 0,
-    repoCount: 0
-  }) // Nuevo estado para los recuentos de búsqueda
 
   return (
     <Routes>
@@ -26,19 +22,11 @@ function App() {
         path="/user/:username"
         element={state.isLoggedIn ? <User /> : <Navigate to="/" />}
       />
-      {/* Ruta para la búsqueda en el Header */}
+
+      {/* Ruta para el listado de usuarios */}
       <Route
-        path="/user/:username/countresults/:searchQuery"
-        element={
-          state.isLoggedIn ? (
-            <CountResults
-              userCount={searchCounts.userCount}
-              repoCount={searchCounts.repoCount}
-            />
-          ) : (
-            <Navigate to="/" />
-          )
-        }
+        path="/user/:username/userslist"
+        element={state.isLoggedIn ? <UserList /> : <Navigate to="/" />}
       />
     </Routes>
   )

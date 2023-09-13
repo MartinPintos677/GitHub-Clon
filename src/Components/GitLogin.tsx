@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../Auth/AuthContext'
 import '../Css/GitLogin.css'
 
@@ -38,7 +38,7 @@ const LoginForm: React.FC = () => {
         </div>
         <h2>Iniciar Sesión en GitHub</h2>
         <div className="line-h2"></div>
-        <div className="input-container">
+        <div className="input-container-login">
           <label className="input-container-label" htmlFor="username">
             Nombre de Usuario o Email
           </label>
@@ -51,7 +51,7 @@ const LoginForm: React.FC = () => {
             onChange={e => setUsername(e.target.value)}
           />
         </div>
-        <div className="input-container">
+        <div className="input-container-login">
           <label className="input-container-label-pass" htmlFor="password">
             Contraseña
           </label>

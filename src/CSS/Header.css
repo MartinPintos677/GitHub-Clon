@@ -27,10 +27,17 @@
   --color-active-input: #f5f5f5;
   --transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --width-input: 280px;
+
+  max-width: 280px;
 }
 
 .search-group {
   position: relative;
+}
+
+.input-container {
+  margin-top: 5px;
+  padding-left: 30px;
 }
 
 .input {
@@ -82,7 +89,7 @@ input:valid ~ label {
   align-items: center;
   position: absolute;
   top: -1em;
-  right: 80%;
+  right: 5%;
   border-radius: 100%;
   transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 100ms;
@@ -100,7 +107,7 @@ input:valid ~ .btn-box {
 .input:not(:focus) ~ .btn-box,
 input:not(:valid) ~ .btn-box {
   transition-property: right, opacity;
-  transition-delay: 300ms;
+  transition-delay: 100ms;
 }
 
 .input:focus ~ .btn-box:hover,
@@ -149,61 +156,19 @@ input:valid ~ .btn-box:hover #svg-circle {
   fill: transparent;
 }
 
-.btn-box-x {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 1em;
-  right: 7%;
-  opacity: 0;
-  transform: rotate(-90deg) scale(0.1);
-  transition: var(--transition);
-}
-
-.input:focus ~ .btn-box-x,
-input:valid ~ .btn-box-x {
-  opacity: 1;
-  transform: rotate(0) scale(1);
-}
-
-.btn-cleare {
-  position: relative;
-  cursor: pointer;
-  background-color: transparent;
-  width: 2em;
-  height: 2em;
-  border: none;
-  border-radius: 100%;
-  padding: 0;
-  transition: var(--transition);
-}
-
-.btn-cleare svg {
-  width: 15px;
-  height: 15px;
-}
-
-#cleare-line {
-  fill: var(--default-color);
-}
-
-.btn-box-x:hover #cleare-line {
-  fill: var(--color-active);
-}
-
 .username-message {
   margin-left: 20px;
-  margin-top: 13px;
+  margin-top: 15px;
   font-size: 16px;
   color: #f5f5f5;
   background-color: #0d1117;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .username-message-two {
   margin-left: 20px;
-  margin-top: 13px;
+  margin-top: 15px;
   font-size: 16px;
   color: #f5f5f5;
   background-color: #0d1117;
@@ -213,8 +178,16 @@ input:valid ~ .btn-box-x {
   display: flex;
 }
 
+.username-message:hover {
+  color: #1a73e8;
+}
+
 .dropdown-header {
   background-color: #0d1117;
+}
+
+.search-container {
+  margin-top: 5px;
 }
 
 .username-logout {

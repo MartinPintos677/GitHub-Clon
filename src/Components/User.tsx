@@ -6,21 +6,10 @@ import '../Css/User.css'
 
 const User: React.FC = () => {
   const { state } = useAuth()
-  const [hasAttemptedSearch, setHasAttemptedSearch] = useState(false)
-  const [searchResults, setSearchResults] = useState({
-    userCount: 0,
-    repoCount: 0
-  })
-
-  console.log('Usuarios: ' + searchResults.userCount)
-  console.log('Repos: ' + searchResults.repoCount)
 
   return (
     <div>
-      <Header
-        setHasAttemptedSearch={setHasAttemptedSearch}
-        setSearchResults={setSearchResults}
-      />
+      <Header />
       <div className="user-repo-search">
         <div className="user-profile">
           <img
