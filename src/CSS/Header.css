@@ -1,22 +1,22 @@
 .header-full {
   /*background-color: #0d1117;*/
-  height: 50px;
+  height: 20px;
 }
 
 .github-logo {
   color: #f5f5f5;
-  height: 50px;
+  height: 35px;
 }
 
 .elements {
   background-color: #0d1117;
-  padding-top: 20px;
-  padding-bottom: 15px;
+  padding-top: 10px;
+  /*padding-bottom: 10px;*/
   display: flex;
   justify-content: space-between;
   padding-left: 30px;
   padding-right: 30px;
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
   border-bottom: 1px solid #9e9e9e;
 }
 
@@ -158,7 +158,8 @@ input:valid ~ .btn-box:hover #svg-circle {
 
 .username-message {
   margin-left: 20px;
-  margin-top: 15px;
+  margin-top: 7px;
+  margin-bottom: 13px;
   font-size: 16px;
   color: #f5f5f5;
   background-color: #0d1117;
@@ -168,7 +169,17 @@ input:valid ~ .btn-box:hover #svg-circle {
 
 .username-message-two {
   margin-left: 20px;
-  margin-top: 15px;
+  margin-top: 6px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #f5f5f5;
+  background-color: #0d1117;
+}
+
+.username-message-three {
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 15px;
   font-size: 16px;
   color: #f5f5f5;
   background-color: #0d1117;
@@ -183,6 +194,7 @@ input:valid ~ .btn-box:hover #svg-circle {
 }
 
 .dropdown-header {
+  margin-top: -15px;
   background-color: #0d1117;
 }
 

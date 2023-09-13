@@ -45,12 +45,6 @@ const GitHubUsers: React.FC = () => {
     navigate(`/user/${state.username}`)
   }
 
-  useEffect(() => {
-    // Fetch GitHub users when the component mounts (optional)
-    // Puedes eliminar esto si deseas buscar usuarios solo cuando se hace clic en el botón de búsqueda.
-    handleSearch()
-  }, [])
-
   // Calcular el índice inicial y final de los usuarios a mostrar en la página actual
   const indexOfLastUser = currentPage * usersPerPage
   const indexOfFirstUser = indexOfLastUser - usersPerPage

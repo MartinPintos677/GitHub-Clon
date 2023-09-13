@@ -46,7 +46,7 @@ const Header: React.FC = () => {
                 {state.username} &#9660;
               </div>
               {isDropdownOpen && (
-                <div className="dropdown-header">
+                <div className="dropdown-header mb-2">
                   <button className="username-logout" onClick={handleLogout}>
                     Cerrar Sesión
                   </button>
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
                 Buscador &#9660;
               </div>
             ) : (
-              <p className="username-message-two">Bienvenidos a GitHub</p>
+              <p className="username-message-three">Bienvenidos a GitHub</p>
             )}
             {isSecondDropdownOpen && (
               <div
