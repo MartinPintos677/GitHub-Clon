@@ -110,9 +110,7 @@
   }
 
   .user-list li {
-    /* text-align: center;*/
     margin: 20px;
-    /* flex-basis: calc(20% - 10px);*/
   }
 
   .input-container {

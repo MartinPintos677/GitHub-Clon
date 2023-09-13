@@ -15,7 +15,8 @@ const GitHubUsers: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [users, setUsers] = useState<GitHubUser[]>([])
   const [currentPage, setCurrentPage] = useState<number>(1)
-  const usersPerPage = 8 // Cambia esto al número deseado de usuarios por página
+  const [hasSearched, setHasSearched] = useState<boolean>(false)
+  const usersPerPage = 8
   const navigate = useNavigate()
   const { state } = useAuth()
 
@@ -26,6 +27,7 @@ const GitHubUsers: React.FC = () => {
       )
       setUsers(response.data.items)
       setCurrentPage(1) // Restablece la página actual a la primera página después de cada búsqueda
+      setHasSearched(true)
     } catch (error) {
       console.error('Error fetching GitHub users:', error)
     }
@@ -34,6 +36,7 @@ const GitHubUsers: React.FC = () => {
   const handleClearSearch = () => {
     setSearchQuery('') // Limpia el campo de búsqueda
     setUsers([]) // Limpia la lista de usuarios encontrados
+    setHasSearched(false)
   }
 
   const handleGoToHome = () => {
@@ -55,6 +58,20 @@ const GitHubUsers: React.FC = () => {
 
   // Calcular el número total de páginas
   const totalPages = Math.ceil(users.length / usersPerPage)
+
+  // Determina el mensaje del encabezado en función del número de usuarios encontrados
+  let headerMessage = ''
+  if (hasSearched) {
+    if (users.length === 1) {
+      headerMessage = 'Resultados de la búsqueda: (1 usuario)'
+    } else if (users.length > 1) {
+      headerMessage = `Resultados de la búsqueda: (${users.length} usuarios)`
+    } else {
+      headerMessage = 'Ningún usuario con el nombre indicado.'
+    }
+  } else {
+    headerMessage = 'Buscador de usuarios'
+  }
 
   return (
     <div>
@@ -104,7 +121,7 @@ const GitHubUsers: React.FC = () => {
 
         <div className="users-container">
           <div className="user-list">
-            <h2>Resultados de la búsqueda: ({users.length} usuarios)</h2>
+            <h2>{headerMessage}</h2>
             <ul>
               {currentUsers.map(user => (
                 <li
