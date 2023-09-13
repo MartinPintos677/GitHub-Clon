@@ -104,9 +104,7 @@ const GitHubUsers: React.FC = () => {
 
         <div className="users-container">
           <div className="user-list">
-            <h2>
-              Resultados de la búsqueda: ({users.length} usuarios encontrados)
-            </h2>
+            <h2>Resultados de la búsqueda: ({users.length} usuarios)</h2>
             <ul>
               {currentUsers.map(user => (
                 <li

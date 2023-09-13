@@ -205,12 +205,12 @@ input:valid ~ .btn-box:hover #svg-circle {
 }
 
 @media (max-width: 700px) {
-  .elements {
+  /*.elements {
     flex-direction: column;
     gap: 20px;
-  }
+  }*/
 
-  .search-panels {
+  /*.search-panels {
     width: 280px;
-  }
+  }*/
 }
