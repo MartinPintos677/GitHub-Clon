@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Header from '../Components/Header'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import '../Css/UsersList.css'
 import { useAuth } from '../Auth/AuthContext'
 
@@ -43,6 +43,12 @@ const GitHubUsers: React.FC = () => {
     // Redirige a la ruta '/user/${state.username}' (reemplaza 'state.username' con el valor adecuado)
     // Puedes usar una biblioteca de enrutamiento como 'react-router-dom' para realizar la redirección.
     navigate(`/user/${state.username}`)
+  }
+
+  // Función para manejar la selección de un usuario y redirigir
+  const handleUserSelect = (user: GitHubUser) => {
+    // Redirige a la página de detalles del usuario seleccionado
+    navigate(`/user/${user.login}/userslist/${user.login}`)
   }
 
   // Calcular el índice inicial y final de los usuarios a mostrar en la página actual
@@ -121,16 +127,17 @@ const GitHubUsers: React.FC = () => {
                 <li
                   key={user.login}
                   className="d-grid justify-content-center align-items-center"
+                  onClick={() => handleUserSelect(user)} // Manejar clic en el usuario
                 >
                   <img src={user.avatar_url} alt={`${user.login}'s avatar`} />
-                  <a
+
+                  <Link
                     className="mt-2 mb-3"
-                    href={user.html_url}
-                    target="_blank"
+                    to={`/user/${user.login}/userslist/${user.login}`} // Agregar enlace para la navegación
                     rel="noopener noreferrer"
                   >
                     {user.login}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

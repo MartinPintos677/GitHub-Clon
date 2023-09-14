@@ -8,11 +8,11 @@ import '../Css/GitLogin.css'
 const LoginForm: React.FC = () => {
   const { login } = useAuth()
   const navigate = useNavigate()
-  const [username, setUsername] = useState('Martin')
+  const [username, setUsername] = useState('Michi')
   const [password, setPassword] = useState('123')
 
   /*const handleLogin = () => {
-    // Aquí debes realizar la lógica de autenticación.
+    // Aquí realizaremos la lógica de autenticación.
     // Por ahora, solo llamaremos a la función 'login' con un nombre de usuario ficticio.
     console.log('Iniciar sesión con nombre de usuario:', username)
 
@@ -49,6 +49,7 @@ const LoginForm: React.FC = () => {
             name="username"
             value={username}
             onChange={e => setUsername(e.target.value)}
+            required
           />
         </div>
         <div className="input-container-login">
@@ -62,6 +63,7 @@ const LoginForm: React.FC = () => {
             name="password"
             value={password}
             onChange={e => setPassword(e.target.value)}
+            required
           />
         </div>
 
