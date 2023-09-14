@@ -16,8 +16,10 @@ function App() {
       {state.isLoggedIn && (
         <Route path="/" element={<Navigate to={`/user/${state.username}`} />} />
       )}
+
       {/* Ruta predeterminada para usuarios no autenticados */}
       <Route path="/" element={<Default />} />
+
       {/* Ruta para el usuario autenticado, si no está autenticado lo redirige a Default */}
       <Route
         path="/user/:username"

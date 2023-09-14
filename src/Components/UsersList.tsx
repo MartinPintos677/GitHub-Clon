@@ -129,12 +129,15 @@ const GitHubUsers: React.FC = () => {
                   className="d-grid justify-content-center align-items-center"
                   onClick={() => handleUserSelect(user)} // Manejar clic en el usuario
                 >
-                  <img src={user.avatar_url} alt={`${user.login}'s avatar`} />
+                  <Link
+                    to={`/user/${user.login}/userslist/${user.login}`} // Enlace para usuario seleccionado
+                  >
+                    <img src={user.avatar_url} alt={`${user.login}'s avatar`} />
+                  </Link>
 
                   <Link
                     className="mt-2 mb-3"
-                    to={`/user/${user.login}/userslist/${user.login}`} // Agregar enlace para la navegación
-                    rel="noopener noreferrer"
+                    to={`/user/${user.login}/userslist/${user.login}`} // Enlace para usuario seleccionado
                   >
                     {user.login}
                   </Link>

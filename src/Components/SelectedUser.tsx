@@ -43,12 +43,18 @@ const SelectedUser: React.FC = ({}) => {
             <p className="bio-user">{userDetails.bio}</p>
             <div className="stats">
               <div className="followers">
-                <span className="count-user">{userDetails.followers}</span>{' '}
-                Followers
+                Seguidores
+                <span className="count-user">
+                  {' '}
+                  {userDetails.followers}
+                </span>{' '}
               </div>
               <div className="following">
-                <span className="count-user">{userDetails.following}</span>{' '}
-                Following
+                Siguiendo
+                <span className="count-user">
+                  {' '}
+                  {userDetails.following}
+                </span>{' '}
               </div>
             </div>
           </div>
