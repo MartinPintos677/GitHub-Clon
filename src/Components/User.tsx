@@ -19,14 +19,16 @@ const User: React.FC = () => {
           />
           <div className="user-container">
             <h2 className="name-user">{state.username}</h2>
-            <p className="username-user">@{state.username}</p>
+            <p className="username-user">{state.username}</p>
             <p className="bio-user">Bienvenidos a mi GitHub</p>
             <div className="stats">
               <div className="followers">
-                <span className="count-user"></span> Followers: 7
+                Seguidores
+                <span className="count-user"> 7</span>
               </div>
               <div className="following">
-                <span className="count-user"></span> Following: 8
+                Siguiendo
+                <span className="count-user"> 8</span>
               </div>
             </div>
           </div>
