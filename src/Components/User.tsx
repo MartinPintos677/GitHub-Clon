@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Header from '../Components/Header'
 import { useAuth } from '../Auth/AuthContext'
 import gatito from '/gatito.jpg'
@@ -10,7 +10,7 @@ const User: React.FC = () => {
   return (
     <div>
       <Header />
-      <div className="user-repo-search">
+      <div className="full-user-container">
         <div className="user-profile">
           <img
             src={gatito}
