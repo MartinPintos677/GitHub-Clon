@@ -40,8 +40,7 @@ const GitHubUsers: React.FC = () => {
   }
 
   const handleGoToHome = () => {
-    // Redirige a la ruta '/user/${state.username}' (reemplaza 'state.username' con el valor adecuado)
-    // Puedes usar una biblioteca de enrutamiento como 'react-router-dom' para realizar la redirección.
+    // Redirige a la ruta '/user/${state.username}'
     navigate(`/user/${state.username}`)
   }
 
@@ -130,14 +129,14 @@ const GitHubUsers: React.FC = () => {
                   onClick={() => handleUserSelect(user)} // Manejar clic en el usuario
                 >
                   <Link
-                    to={`/user/${user.login}/userslist/${user.login}`} // Enlace para usuario seleccionado
+                    to={`/user/${user.login}/userslist/${user.login}`} // Enlace para usuario seleccionado en imagen
                   >
                     <img src={user.avatar_url} alt={`${user.login}'s avatar`} />
                   </Link>
 
                   <Link
                     className="mt-2 mb-3"
-                    to={`/user/${user.login}/userslist/${user.login}`} // Enlace para usuario seleccionado
+                    to={`/user/${user.login}/userslist/${user.login}`} // Enlace para usuario seleccionado en nombre
                   >
                     {user.login}
                   </Link>

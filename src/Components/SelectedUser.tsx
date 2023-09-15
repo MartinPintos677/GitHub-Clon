@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserGroup } from '@fortawesome/free-solid-svg-icons'
+
 import Header from '../Components/Header'
 import axios from 'axios'
 import { format } from 'date-fns'
@@ -6,7 +9,7 @@ import '../Css/User.css'
 import { useParams } from 'react-router-dom'
 import { useAuth } from '../Auth/AuthContext'
 
-const SelectedUser: React.FC = ({}) => {
+const SelectedUser: React.FC = () => {
   const { username } = useParams()
   const [userDetails, setUserDetails] = useState<any>(null)
   const [userRepos, setUserRepos] = useState<any[]>([])
@@ -32,7 +35,7 @@ const SelectedUser: React.FC = ({}) => {
           `https://api.github.com/users/${username}/repos`
         )
 
-        // Ordena los repositorios por fecha de última actualización (de forma descendente)
+        // Ordeno los repositorios por fecha de última actualización (de forma descendente)
         const organizedRepos = response.data.sort((a: any, b: any) =>
           a.updated_at < b.updated_at ? 1 : -1
         )
@@ -64,6 +67,9 @@ const SelectedUser: React.FC = ({}) => {
               <p className="username-user">{userDetails.login}</p>
               <p className="bio-user">{userDetails.bio}</p>
               <div className="stats">
+                <div className="user-group-icon">
+                  <FontAwesomeIcon icon={faUserGroup} className="" />
+                </div>
                 <div className="followers">
                   Seguidores
                   <span className="count-user">
