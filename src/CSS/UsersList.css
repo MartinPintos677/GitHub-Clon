@@ -20,14 +20,15 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  /*justify-content: space-between;*/
+  /*gap: 30px;*/
+  padding-right: 30px;
 }
 
 /* Estilo para cada elemento de usuario */
 .user-list li {
   text-align: center;
   margin: 10px;
-  flex-basis: calc(20% - 10px);
+  padding-left: 20px;
 }
 
 .user-list img {

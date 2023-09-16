@@ -16,7 +16,7 @@ const GitHubUsers: React.FC = () => {
   const [users, setUsers] = useState<GitHubUser[]>([])
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [hasSearched, setHasSearched] = useState<boolean>(false)
-  const usersPerPage = 8
+  const usersPerPage = 10
   const navigate = useNavigate()
   const { state } = useAuth()
 

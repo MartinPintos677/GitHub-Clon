@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserGroup } from '@fortawesome/free-solid-svg-icons'
 
@@ -13,6 +14,7 @@ const SelectedUser: React.FC = () => {
   const { username } = useParams()
   const [userDetails, setUserDetails] = useState<any>(null)
   const [userRepos, setUserRepos] = useState<any[]>([])
+  const navigate = useNavigate()
   const { state } = useAuth()
 
   useEffect(() => {
@@ -51,6 +53,11 @@ const SelectedUser: React.FC = () => {
     }
   }, [username])
 
+  const handleGoToHome = () => {
+    // Redirige a la ruta '/user/${state.username}'
+    navigate(`/user/${state.username}`)
+  }
+
   return (
     <div>
       <Header />
@@ -84,6 +91,15 @@ const SelectedUser: React.FC = () => {
                     {userDetails.following}
                   </span>{' '}
                 </div>
+              </div>
+              <hr className="text-light" />
+              <div className="btn-container">
+                {/*<button className="btn-clear" onClick={handleClearSearch}>
+              Volver a búsqueda 
+            </button> */}
+                <button className="btn-back" onClick={handleGoToHome}>
+                  Volver a inicio
+                </button>
               </div>
             </div>
           )}
