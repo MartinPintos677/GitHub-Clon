@@ -39,7 +39,7 @@ const SelectedUser: React.FC = () => {
 
         // Ordeno los repositorios por fecha de última actualización (de forma descendente)
         const organizedRepos = response.data.sort((a: any, b: any) =>
-          a.created_at < b.created_at ? 1 : -1
+          a.pushed_at < b.pushed_at ? 1 : -1
         )
         setUserRepos(organizedRepos)
       } catch (error) {
