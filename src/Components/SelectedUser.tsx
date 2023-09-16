@@ -39,7 +39,7 @@ const SelectedUser: React.FC = () => {
 
         // Ordeno los repositorios por fecha de última actualización (de forma descendente)
         const organizedRepos = response.data.sort((a: any, b: any) =>
-          a.updated_at < b.updated_at ? 1 : -1
+          a.created_at < b.created_at ? 1 : -1
         )
         setUserRepos(organizedRepos)
       } catch (error) {
@@ -126,11 +126,11 @@ const SelectedUser: React.FC = () => {
               ))}
             </ul>
           </div>
-        ) : (
+        ) : userDetails && userDetails.public_repos === 0 ? (
           <h3 className="text-light no-repositories">
             Usuario sin repositorios.
           </h3>
-        )}
+        ) : null}
       </div>
     </div>
   )
