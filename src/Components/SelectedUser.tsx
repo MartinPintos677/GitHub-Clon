@@ -89,7 +89,7 @@ const SelectedUser: React.FC = () => {
           )}
         </div>
 
-        {userRepos && (
+        {userRepos.length > 0 ? (
           <div className="col user-repos">
             <h3>Repositorios de {username}</h3>
             <ul>
@@ -110,6 +110,10 @@ const SelectedUser: React.FC = () => {
               ))}
             </ul>
           </div>
+        ) : (
+          <h3 className="text-light no-repositories">
+            Usuario sin repositorios.
+          </h3>
         )}
       </div>
     </div>
