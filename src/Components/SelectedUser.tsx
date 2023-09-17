@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserGroup } from '@fortawesome/free-solid-svg-icons'
-
+import RepoModal from './RepoModal'
 import Header from '../Components/Header'
 import axios from 'axios'
 import { format } from 'date-fns'
@@ -14,6 +14,8 @@ const SelectedUser: React.FC = () => {
   const { username } = useParams()
   const [userDetails, setUserDetails] = useState<any>(null)
   const [userRepos, setUserRepos] = useState<any[]>([])
+  const [selectedRepo, setSelectedRepo] = useState<Repo | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
   const navigate = useNavigate()
   const { state } = useAuth()
 
@@ -52,6 +54,24 @@ const SelectedUser: React.FC = () => {
       fetchUserRepos()
     }
   }, [username])
+
+  // Define un tipo para los objetos de repositorio
+  type Repo = {
+    id: number
+    name: string
+    description: string
+    // Agrega otros campos del objeto de repositorio según tu estructura
+  }
+
+  const handleRepoClick = (repo: Repo) => {
+    setSelectedRepo(repo)
+    setIsModalOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setSelectedRepo(null)
+    setIsModalOpen(false)
+  }
 
   const handleGoToHome = () => {
     // Redirige a la ruta '/user/${state.username}'
@@ -112,8 +132,15 @@ const SelectedUser: React.FC = () => {
               <hr className="mt-4" />
               {userRepos.map((repo: any) => (
                 <li key={repo.id}>
-                  <div className="repo-name">{repo.name}</div>
-                  <div className="repo-description">{repo.description}</div>
+                  <div
+                    className="repo-name"
+                    onClick={() => handleRepoClick(repo)}
+                  >
+                    {repo.name}
+                  </div>
+                  {repo.description && (
+                    <div className="repo-description">{repo.description}</div>
+                  )}
                   <div className="repo-details">
                     {repo.language && <div>{repo.language}</div>}
                     <div>
@@ -132,6 +159,10 @@ const SelectedUser: React.FC = () => {
           </h3>
         ) : null}
       </div>
+      {/* Renderiza el modal si está abierto */}
+      {isModalOpen && (
+        <RepoModal repo={selectedRepo} onClose={handleCloseModal} />
+      )}
     </div>
   )
 }
