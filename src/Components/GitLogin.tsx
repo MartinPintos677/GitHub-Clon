@@ -9,7 +9,7 @@ const LoginForm: React.FC = () => {
   const { login } = useAuth()
   const navigate = useNavigate()
   const [username, setUsername] = useState('Michi')
-  const [password, setPassword] = useState('123')
+  const [password, setPassword] = useState('********')
 
   /*const handleLogin = () => {
     // Aquí realizaremos la lógica de autenticación.

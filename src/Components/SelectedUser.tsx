@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserGroup } from '@fortawesome/free-solid-svg-icons'
+import { faUserGroup, faHouseUser } from '@fortawesome/free-solid-svg-icons'
 import RepoModal from './RepoModal'
 import Header from '../Components/Header'
 import axios from 'axios'
@@ -118,7 +118,7 @@ const SelectedUser: React.FC = () => {
               Volver a búsqueda 
             </button> */}
                 <button className="btn-back" onClick={handleGoToHome}>
-                  Volver a inicio
+                  <FontAwesomeIcon icon={faHouseUser} className="" />
                 </button>
               </div>
             </div>

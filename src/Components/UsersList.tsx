@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Header from '../Components/Header'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHouseUser } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
 import '../Css/UsersList.css'
@@ -111,8 +113,9 @@ const GitHubUsers: React.FC = () => {
               <button className="btn-clear" onClick={handleClearSearch}>
                 Limpiar búsqueda
               </button>
+              <br />
               <button className="btn-back" onClick={handleGoToHome}>
-                Volver a inicio
+                <FontAwesomeIcon icon={faHouseUser} className="" />
               </button>
             </div>
           </div>

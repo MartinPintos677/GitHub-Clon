@@ -32,7 +32,7 @@ const RepoModal: React.FC<RepoModalProps> = ({ repo, onClose }) => {
         <h2 className="repo-name-modal">{repo.name}</h2>
         <div className="line-modal"></div>
         {repo.description && <p>{repo.description}</p>}
-        {repo.language && <p>Lenguajes: {languages.join(', ')}</p>}
+        {repo.language && <p>Tecnologías: {languages.join(', ')}</p>}
         <p>
           Fecha de creación:{' '}
           {format(new Date(repo.created_at), 'dd/MM/yyyy HH:mm')}
