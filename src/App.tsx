@@ -13,14 +13,14 @@ function App() {
   return (
     <Routes>
       {/* Ruta predeterminada para usuarios no autenticados */}
-      <Route path="/" element={<Default />} />
+      {!state.isLoggedIn && <Route path="/" element={<Default />} />}
 
       {/* Si el usuario está autenticado, redirige a su página */}
       {state.isLoggedIn && (
         <Route path="/" element={<Navigate to={`/user/${state.username}`} />} />
       )}
 
-      {/* Ruta para el usuario autenticado, si no está autenticado lo redirige a Default */}
+      {/* Ruta para el usuario autenticado, si no está autenticado lo redirige a Default (login) */}
       <Route
         path="/user/:username"
         element={state.isLoggedIn ? <UserHome /> : <Navigate to="/" />}

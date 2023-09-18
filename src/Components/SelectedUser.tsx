@@ -10,14 +10,23 @@ import '../Css/User.css'
 import { useParams } from 'react-router-dom'
 import { useAuth } from '../Auth/AuthContext'
 
+type Repo = {
+  id: number
+  name: string
+  description: string
+}
+
 const SelectedUser: React.FC = () => {
   const { username } = useParams()
   const [userDetails, setUserDetails] = useState<any>(null)
   const [userRepos, setUserRepos] = useState<any[]>([])
   const [selectedRepo, setSelectedRepo] = useState<Repo | null>(null)
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+  const [searchQuery, setSearchQuery] = useState<string>('') // Agregamos un estado para la consulta de búsqueda
   const navigate = useNavigate()
   const { state } = useAuth()
+
+  const [userReposOriginal, setUserReposOriginal] = useState<any[]>([])
 
   useEffect(() => {
     // Realiza una llamada a la API de GitHub para obtener los detalles del usuario seleccionado
@@ -44,6 +53,7 @@ const SelectedUser: React.FC = () => {
           a.pushed_at < b.pushed_at ? 1 : -1
         )
         setUserRepos(organizedRepos)
+        setUserReposOriginal(organizedRepos) // Almacena la lista original
       } catch (error) {
         console.error('Error fetching user repositories:', error)
       }
@@ -54,14 +64,6 @@ const SelectedUser: React.FC = () => {
       fetchUserRepos()
     }
   }, [username])
-
-  // Define un tipo para los objetos de repositorio
-  type Repo = {
-    id: number
-    name: string
-    description: string
-    // Agrega otros campos del objeto de repositorio según tu estructura
-  }
 
   const handleRepoClick = (repo: Repo) => {
     setSelectedRepo(repo)
@@ -76,6 +78,23 @@ const SelectedUser: React.FC = () => {
   const handleGoToHome = () => {
     // Redirige a la ruta '/user/${state.username}'
     navigate(`/user/${state.username}`)
+  }
+
+  // Agregamos una función para manejar la búsqueda en tiempo real
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    setSearchQuery(value)
+
+    // Si el campo de búsqueda está vacío, mostrar todos los repositorios nuevamente
+    if (value === '') {
+      setUserRepos(userReposOriginal) // Restaura la lista original de repositorios
+    } else {
+      // Filtrar repositorios en función del valor del campo de búsqueda
+      const filteredRepos = userReposOriginal.filter(repo =>
+        repo.name.toLowerCase().includes(value.toLowerCase())
+      )
+      setUserRepos(filteredRepos)
+    }
   }
 
   return (
@@ -114,9 +133,6 @@ const SelectedUser: React.FC = () => {
               </div>
               <hr className="text-light" />
               <div className="btn-container">
-                {/*<button className="btn-clear" onClick={handleClearSearch}>
-              Volver a búsqueda 
-            </button> */}
                 <button className="btn-back" onClick={handleGoToHome}>
                   <FontAwesomeIcon icon={faHouseUser} className="" />
                 </button>
@@ -125,9 +141,26 @@ const SelectedUser: React.FC = () => {
           )}
         </div>
 
-        {userRepos.length > 0 ? (
-          <div className="col user-repos">
-            <h3>Repositorios de {username}</h3>
+        <div className="col user-repos">
+          <div className="repo-user-container">
+            <h3 className="">Repositorios de {username}</h3>
+
+            <div className="search-panels">
+              <div className="search-group">
+                <input
+                  type="text"
+                  name="text"
+                  autoComplete="on"
+                  className="input"
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                />
+                <label className="enter-label">Buscar</label>
+                <div className="btn-box"></div>
+              </div>
+            </div>
+          </div>
+          {userRepos.length > 0 ? (
             <ul>
               <hr className="mt-4" />
               {userRepos.map((repo: any) => (
@@ -152,14 +185,20 @@ const SelectedUser: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
-        ) : userDetails && userDetails.public_repos === 0 ? (
-          <h3 className="text-light no-repositories">
-            Usuario sin repositorios.
-          </h3>
-        ) : null}
+          ) : userDetails && userDetails.public_repos === 0 ? (
+            <h3 className="text-light mt-5 no-repositories">
+              Usuario sin repositorios.
+            </h3>
+          ) : (
+            // Agrega un mensaje de "Ningún repositorio encontrado" si no hay repositorios
+            <h4 className="text-light no-repositories">
+              {searchQuery === ''
+                ? 'Cargando repositorios...'
+                : 'Ningún repositorio encontrado con el nombre indicado.'}
+            </h4>
+          )}
+        </div>
       </div>
-      {/* Renderiza el modal si está abierto */}
       {isModalOpen && (
         <RepoModal repo={selectedRepo} onClose={handleCloseModal} />
       )}

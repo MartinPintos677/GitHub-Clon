@@ -68,12 +68,21 @@
   color: #f5f5f5;
 }
 
+.repo-user-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .user-repos {
   padding: 20px;
   color: #f5f5f5;
   margin-left: 50px;
   margin-top: 70px;
   padding-right: 50px;
+}
+
+.user-repos h3 {
+  margin-top: 13px;
 }
 
 .user-repos ul {
