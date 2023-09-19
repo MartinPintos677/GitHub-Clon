@@ -170,9 +170,20 @@ const GitHubRepos: React.FC = () => {
                 </li>
               ))}
             </ul>
+            <hr className="mt-4 mb-4 text-light" />
           </div>
           {/* Agrega la paginación aquí, similar a la versión anterior */}
-          {/* ... */}
+          <div className="pagination mb-3">
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentPage(index + 1)}
+                className={currentPage === index + 1 ? 'active' : ''}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
         </div>
         {/* Renderiza el modal cuando está abierto */}
         {isModalOpen && selectedRepo && (

@@ -32,7 +32,7 @@ const RepoModal: React.FC<RepoModalProps> = ({ repo, onClose }) => {
         <h2 className="repo-name-modal">{repo.name}</h2>
         <div className="line-modal"></div>
         <p>Usuario: {repo.owner.login}</p>
-        {repo.description && <p>Descripción {repo.description}</p>}
+        {repo.description && <p>Descripción: {repo.description}</p>}
         {repo.language && <p>Tecnologías: {languages.join(', ')}</p>}
         <p>
           Fecha de creación:{' '}
