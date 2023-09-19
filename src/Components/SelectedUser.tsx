@@ -7,6 +7,7 @@ import Header from '../Components/Header'
 import axios from 'axios'
 import { format } from 'date-fns'
 import '../Css/User.css'
+import '../Css/InputSearch.css'
 import { useParams } from 'react-router-dom'
 import { useAuth } from '../Auth/AuthContext'
 

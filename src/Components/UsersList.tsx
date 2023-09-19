@@ -5,6 +5,7 @@ import { faHouseUser } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
 import '../Css/UsersList.css'
+import '../Css/InputSearch.css'
 import { useAuth } from '../Auth/AuthContext'
 
 type GitHubUser = {
@@ -39,6 +40,10 @@ const GitHubUsers: React.FC = () => {
     setSearchQuery('') // Limpia el campo de búsqueda
     setUsers([]) // Limpia la lista de usuarios encontrados
     setHasSearched(false)
+  }
+
+  const handleGoToRepos = () => {
+    navigate(`/user/${state.username}/reposlist`)
   }
 
   const handleGoToHome = () => {
@@ -112,6 +117,10 @@ const GitHubUsers: React.FC = () => {
             <div className="btn-container">
               <button className="btn-clear" onClick={handleClearSearch}>
                 Limpiar búsqueda
+              </button>
+              <br />
+              <button className="btn-clear" onClick={handleGoToRepos}>
+                Buscar repositorios
               </button>
               <br />
               <button className="btn-back" onClick={handleGoToHome}>

@@ -8,6 +8,7 @@ import { format } from 'date-fns'
 import { useNavigate } from 'react-router-dom'
 import '../Css/UsersList.css'
 import '../Css/ReposList.css'
+import '../Css/InputSearch.css'
 import { useAuth } from '../Auth/AuthContext'
 
 type GitHubRepository = {
@@ -31,7 +32,7 @@ const GitHubRepos: React.FC = () => {
   const navigate = useNavigate()
   const { state } = useAuth()
 
-  const handleSearch = async () => {
+  /*const handleSearch = async () => {
     try {
       const response = await axios.get(
         `https://api.github.com/search/repositories?q=${searchQuery}`
@@ -42,12 +43,32 @@ const GitHubRepos: React.FC = () => {
     } catch (error) {
       console.error('Error fetching GitHub repositories:', error)
     }
+  }*/
+
+  const handleSearch = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.github.com/search/repositories?q=${searchQuery}`
+      )
+
+      setRepositories([])
+
+      setRepositories(response.data.items)
+      setCurrentPage(1)
+      setHasSearched(true)
+    } catch (error) {
+      console.error('Error fetching GitHub repositories:', error)
+    }
   }
 
   const handleClearSearch = () => {
     setSearchQuery('') // Limpia el campo de búsqueda
     setRepositories([]) // Limpia la lista de repositorios encontrados
     setHasSearched(false)
+  }
+
+  const handleGoToUsers = () => {
+    navigate(`/user/${state.username}/userslist`)
   }
 
   const handleGoToHome = () => {
@@ -132,6 +153,10 @@ const GitHubRepos: React.FC = () => {
                 Limpiar búsqueda
               </button>
               <br />
+              <button className="btn-clear" onClick={handleGoToUsers}>
+                Buscar usuarios
+              </button>
+              <br />
               <button className="btn-back" onClick={handleGoToHome}>
                 <FontAwesomeIcon icon={faHouseUser} className="" />
               </button>
@@ -143,9 +168,8 @@ const GitHubRepos: React.FC = () => {
           <div className="repos-list">
             <h2>{headerMessage}</h2>
             <ul>
-              {currentRepositories.map(repository => (
-                <li key={repository.name} className="user-repos-list">
-                  <hr className="mt-4 text-light" />
+              {currentRepositories.map((repository, index) => (
+                <li key={index} className="user-repos-list">
                   <div
                     className="repo-name"
                     onClick={() => handleOpenModal(repository)}
@@ -167,13 +191,13 @@ const GitHubRepos: React.FC = () => {
                       )}
                     </div>
                   </div>
+                  <hr className="mt-4 text-light" />
                 </li>
               ))}
             </ul>
-            <hr className="mt-4 mb-4 text-light" />
           </div>
           {/* Agrega la paginación aquí, similar a la versión anterior */}
-          <div className="pagination mb-3">
+          <div className="pagination mb-3 mt-4">
             {Array.from({ length: totalPages }).map((_, index) => (
               <button
                 key={index}
