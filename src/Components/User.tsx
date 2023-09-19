@@ -19,6 +19,11 @@ const User: React.FC = () => {
     navigate(`/user/${state.username}/userslist`)
   }
 
+  const handleGoToRepositories = () => {
+    // Redirige a la ruta '/user/${state.username}'
+    navigate(`/user/${state.username}/reposlist`)
+  }
+
   type Repo = {
     name: string
     description: string
@@ -74,6 +79,9 @@ const User: React.FC = () => {
             </button> */}
             <button className="btn-back" onClick={handleGoToUsers}>
               Buscar usuarios
+            </button>
+            <button className="btn-back" onClick={handleGoToRepositories}>
+              Buscar repositorios
             </button>
           </div>
         </div>

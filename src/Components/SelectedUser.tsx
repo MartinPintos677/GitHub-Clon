@@ -75,6 +75,11 @@ const SelectedUser: React.FC = () => {
     setIsModalOpen(false)
   }
 
+  const handleGoToRepositories = () => {
+    // Redirige a la ruta '/user/${state.username}'
+    navigate(`/user/${state.username}/reposlist`)
+  }
+
   const handleGoToHome = () => {
     // Redirige a la ruta '/user/${state.username}'
     navigate(`/user/${state.username}`)
@@ -136,6 +141,10 @@ const SelectedUser: React.FC = () => {
                 <button className="btn-back" onClick={handleGoToHome}>
                   <FontAwesomeIcon icon={faHouseUser} className="" />
                 </button>
+                <br />
+                <button className="btn-back" onClick={handleGoToRepositories}>
+                  Buscar repositorios
+                </button>
               </div>
             </div>
           )}
@@ -155,7 +164,7 @@ const SelectedUser: React.FC = () => {
                   value={searchQuery}
                   onChange={handleSearchChange}
                 />
-                <label className="enter-label">Buscar</label>
+                <label className="enter-label">Buscador</label>
                 <div className="btn-box"></div>
               </div>
             </div>

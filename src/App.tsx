@@ -4,6 +4,7 @@ import Default from './Pages/Default'
 import UserHome from './Pages/Home'
 import UserList from './Pages/PageUsersList'
 import SelectedUser from './Pages/PageSelectedUser'
+import ReposList from './Pages/PageReposList'
 import { useAuth } from './Auth/AuthContext'
 import './App.css'
 
@@ -36,6 +37,12 @@ function App() {
       <Route
         path="/user/:username/userslist/:id"
         element={state.isLoggedIn ? <SelectedUser /> : <Navigate to="/" />}
+      />
+
+      {/* Ruta para el listado de repositorios */}
+      <Route
+        path="/user/:username/reposlist"
+        element={state.isLoggedIn ? <ReposList /> : <Navigate to="/" />}
       />
     </Routes>
   )

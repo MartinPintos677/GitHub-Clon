@@ -10,6 +10,7 @@ const Header: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isSecondDropdownOpen, setIsSecondDropdownOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState('usuarios')
+  const [selectedOptionTwo, setSelectedOptionTwo] = useState('repositorios')
   const secondDropdownRef = useRef<HTMLDivElement | null>(null)
   const navigate = useNavigate()
 
@@ -30,8 +31,13 @@ const Header: React.FC = () => {
     toggleDropdown()
 
     if (option === 'usuarios') {
-      // Utiliza navigate para redirigir al usuario a la página deseada
+      // Utiliza navigate para redirigir al usuario a la página de buscador de usuarios
       navigate(`/user/${state.username}/userslist`)
+    }
+
+    if (option === 'repositorios') {
+      // Utiliza navigate para redirigir al usuario a la página de buscador de repositorios
+      navigate(`/user/${state.username}/reposlist`)
     }
   }
 
