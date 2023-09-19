@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserGroup, faHouseUser } from '@fortawesome/free-solid-svg-icons'
+import {
+  faUserGroup,
+  faHouseUser,
+  faCircleArrowLeft
+} from '@fortawesome/free-solid-svg-icons'
 import RepoModal from './RepoModal'
 import Header from '../Components/Header'
 import axios from 'axios'
@@ -81,6 +85,10 @@ const SelectedUser: React.FC = () => {
     navigate(`/user/${state.username}/reposlist`)
   }
 
+  const handleGoToBackUsers = () => {
+    navigate(`/user/${state.username}/userslist`)
+  }
+
   const handleGoToHome = () => {
     // Redirige a la ruta '/user/${state.username}'
     navigate(`/user/${state.username}`)
@@ -139,12 +147,15 @@ const SelectedUser: React.FC = () => {
               </div>
               <hr className="text-light" />
               <div className="btn-container">
-                <button className="btn-back" onClick={handleGoToHome}>
-                  <FontAwesomeIcon icon={faHouseUser} className="" />
-                </button>
-                <br />
                 <button className="btn-back" onClick={handleGoToRepositories}>
                   Buscar repositorios
+                </button>
+                <br />
+                <button className="btn-back" onClick={handleGoToBackUsers}>
+                  <FontAwesomeIcon icon={faCircleArrowLeft} className="" />
+                </button>
+                <button className="btn-back ms-4" onClick={handleGoToHome}>
+                  <FontAwesomeIcon icon={faHouseUser} className="" />
                 </button>
               </div>
             </div>
