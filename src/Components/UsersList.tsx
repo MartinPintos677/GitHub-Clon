@@ -51,12 +51,6 @@ const GitHubUsers: React.FC = () => {
     navigate(`/user/${state.username}`)
   }
 
-  // Función para manejar la selección de un usuario y redirigir
-  const handleUserSelect = (user: GitHubUser) => {
-    // Redirige a la página de detalles del usuario seleccionado
-    navigate(`/user/${user.login}/userslist/${user.login}`)
-  }
-
   // Calcular el índice inicial y final de los usuarios a mostrar en la página actual
   const indexOfLastUser = currentPage * usersPerPage
   const indexOfFirstUser = indexOfLastUser - usersPerPage
@@ -138,17 +132,19 @@ const GitHubUsers: React.FC = () => {
                 <li
                   key={user.login}
                   className="d-grid justify-content-center align-items-center"
-                  onClick={() => handleUserSelect(user)} // Manejar clic en el usuario
                 >
                   <Link
-                    to={`/user/${user.login}/userslist/${user.login}`} // Enlace para usuario seleccionado en imagen
+                    to={`/user/${user.login}/userslist/${user.login}`}
+                    target="_blank"
+                    // Enlace para usuario seleccionado en imagen
                   >
                     <img src={user.avatar_url} alt={`${user.login}'s avatar`} />
                   </Link>
 
                   <Link
                     className="mt-2 mb-3"
-                    to={`/user/${user.login}/userslist/${user.login}`} // Enlace para usuario seleccionado en nombre
+                    to={`/user/${user.login}/userslist/${user.login}`}
+                    target="_blank" // Enlace para usuario seleccionado en nombre
                   >
                     {user.login}
                   </Link>
