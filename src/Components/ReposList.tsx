@@ -16,7 +16,7 @@ type GitHubRepository = {
   name: string
   description: string
   html_url: string
-  updated_at: string
+  pushed_at: string
 }
 
 const GitHubRepos: React.FC = () => {
@@ -32,23 +32,10 @@ const GitHubRepos: React.FC = () => {
   const navigate = useNavigate()
   const { state } = useAuth()
 
-  /*const handleSearch = async () => {
-    try {
-      const response = await axios.get(
-        `https://api.github.com/search/repositories?q=${searchQuery}`
-      )
-      setRepositories(response.data.items)
-      setCurrentPage(1) // Restablece la página actual a la primera página después de cada búsqueda
-      setHasSearched(true)
-    } catch (error) {
-      console.error('Error fetching GitHub repositories:', error)
-    }
-  }*/
-
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `https://api.github.com/search/repositories?q=${searchQuery}`
+        `https://api.github.com/search/repositories?q=${searchQuery}&per_page=100`
       )
 
       setRepositories([])
@@ -186,7 +173,7 @@ const GitHubRepos: React.FC = () => {
                     <div>
                       Última actualización:{' '}
                       {format(
-                        new Date(repository.updated_at),
+                        new Date(repository.pushed_at),
                         'dd/MM/yyyy HH:mm'
                       )}
                     </div>

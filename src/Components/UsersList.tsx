@@ -26,7 +26,7 @@ const GitHubUsers: React.FC = () => {
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `https://api.github.com/search/users?q=${searchQuery}`
+        `https://api.github.com/search/users?q=${searchQuery}&per_page=100`
       )
       setUsers(response.data.items)
       setCurrentPage(1) // Restablece la página actual a la primera página después de cada búsqueda

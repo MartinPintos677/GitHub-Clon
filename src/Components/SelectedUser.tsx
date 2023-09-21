@@ -199,7 +199,7 @@ const SelectedUser: React.FC = () => {
                     {repo.language && <div>{repo.language}</div>}
                     <div>
                       Última actualización:{' '}
-                      {format(new Date(repo.updated_at), 'dd/MM/yyyy HH:mm')}
+                      {format(new Date(repo.pushed_at), 'dd/MM/yyyy HH:mm')}
                     </div>
                   </div>
                   <hr className="mt-4" />

@@ -40,7 +40,7 @@ const RepoModal: React.FC<RepoModalProps> = ({ repo, onClose }) => {
         </p>
         <p>
           Última actualización:{' '}
-          {format(new Date(repo.updated_at), 'dd/MM/yyyy HH:mm')}
+          {format(new Date(repo.pushed_at), 'dd/MM/yyyy HH:mm')}
         </p>
         <p>URL: {repo.html_url}</p>
         <button className="btn-modal mt-2" onClick={onClose}>
