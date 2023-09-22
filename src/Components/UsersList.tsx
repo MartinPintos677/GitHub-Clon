@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Header from '../Components/Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHouseUser } from '@fortawesome/free-solid-svg-icons'
@@ -14,7 +14,7 @@ type GitHubUser = {
   html_url: string
 }
 
-const GitHubUsers: React.FC = () => {
+const GitHubUsers = () => {
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [users, setUsers] = useState<GitHubUser[]>([])
   const [currentPage, setCurrentPage] = useState<number>(1)

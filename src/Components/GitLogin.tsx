@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../Auth/AuthContext'
 import '../Css/GitLogin.css'
 
-const LoginForm: React.FC = () => {
+const LoginForm = () => {
   const { login } = useAuth()
   const navigate = useNavigate()
   const [username, setUsername] = useState('Michi')

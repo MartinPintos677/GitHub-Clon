@@ -21,7 +21,7 @@ type Repo = {
   description: string
 }
 
-const SelectedUser: React.FC = () => {
+const SelectedUser = () => {
   const { username } = useParams()
   const [userDetails, setUserDetails] = useState<any>(null)
   const [userRepos, setUserRepos] = useState<any[]>([])

@@ -1,11 +1,11 @@
-import React, { useState, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useAuth } from '../Auth/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import '../Css/Header.css'
 
-const Header: React.FC = () => {
+const Header = () => {
   const { state, dispatch } = useAuth()
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isSecondDropdownOpen, setIsSecondDropdownOpen] = useState(false)

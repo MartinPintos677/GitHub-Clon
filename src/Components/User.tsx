@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Header from '../Components/Header'
 import { useAuth } from '../Auth/AuthContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import gatito from '/Titi.jpg'
 import '../Css/User.css'
 
-const User: React.FC = () => {
+const User = () => {
   const { state } = useAuth()
   const navigate = useNavigate()
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
