@@ -1,4 +1,3 @@
-//import { useState } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Default from './Pages/Default'
 import UserHome from './Pages/Home'
