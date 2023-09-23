@@ -13,12 +13,12 @@ const RepoModal: React.FC<RepoModalProps> = ({ repo, onClose }) => {
   const [languages, setLanguages] = useState<string[]>([])
 
   useEffect(() => {
-    // Realizar la solicitud a la URL de los lenguajes del repositorio
+    // Realizar la solicitud a la URL de las tecnologías del repositorio
     if (repo.languages_url) {
       axios
         .get(repo.languages_url)
         .then(response => {
-          // Obtener los nombres de los lenguajes y convertirlos en un array
+          // Obtener los nombres de las tecnologías y convertirlas en un array
           const languageNames = Object.keys(response.data)
           setLanguages(languageNames)
         })
