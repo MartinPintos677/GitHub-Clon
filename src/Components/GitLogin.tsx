@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useNavigate } from 'react-router-dom'
@@ -50,6 +50,7 @@ const LoginForm = () => {
             value={username}
             onChange={e => setUsername(e.target.value)}
             required
+            maxLength={18}
           />
         </div>
         <div className="input-container-login">
@@ -64,6 +65,7 @@ const LoginForm = () => {
             value={password}
             onChange={e => setPassword(e.target.value)}
             required
+            maxLength={18}
           />
         </div>
 
