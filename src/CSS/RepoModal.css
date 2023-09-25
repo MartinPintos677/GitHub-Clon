@@ -55,12 +55,6 @@
   border: none;
 }
 
-.repo-name-modal,
-.repo-url {
-  max-width: 100%; /* Establecer el ancho máximo al 100% para evitar desbordamientos */
-  word-wrap: break-word; /* Permitir que las palabras largas se rompan y se ajusten al contenedor */
-}
-
 .repo-url {
   padding-right: 30px;
 }
