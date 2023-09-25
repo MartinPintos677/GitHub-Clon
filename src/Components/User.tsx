@@ -15,12 +15,10 @@ const User = () => {
   const [selectedRepo, setSelectedRepo] = useState<Repo | null>(null)
 
   const handleGoToUsers = () => {
-    // Redirige a la ruta '/user/${state.username}'
     navigate(`/user/${state.username}/userslist`)
   }
 
   const handleGoToRepositories = () => {
-    // Redirige a la ruta '/user/${state.username}'
     navigate(`/user/${state.username}/reposlist`)
   }
 
@@ -74,9 +72,6 @@ const User = () => {
           </div>
           <hr className="text-light" />
           <div className="btn-container">
-            {/*<button className="btn-clear" onClick={handleClearSearch}>
-              Volver a búsqueda 
-            </button> */}
             <button className="btn-back" onClick={handleGoToUsers}>
               Buscar usuarios
             </button>
@@ -108,10 +103,7 @@ const User = () => {
         </div>
       </div>
       {isModalOpen && (
-        <RepoModal
-          repoState={selectedRepo} // Pasa el repositorio seleccionado
-          onClose={handleCloseModal}
-        />
+        <RepoModal repoState={selectedRepo} onClose={handleCloseModal} />
       )}
     </div>
   )
