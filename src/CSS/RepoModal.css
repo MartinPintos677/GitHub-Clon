@@ -64,3 +64,9 @@
 .repo-url {
   padding-right: 30px;
 }
+
+@media (max-width: 768px) {
+  .repo-modal-content {
+    max-width: 90%;
+  }
+}

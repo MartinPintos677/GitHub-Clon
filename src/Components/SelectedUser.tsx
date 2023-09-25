@@ -162,7 +162,7 @@ const SelectedUser = () => {
           )}
         </div>
 
-        <div className="col user-repos">
+        <div className="user-repos">
           <div className="repo-user-container">
             <h3 className="">Repositorios de {username}</h3>
 

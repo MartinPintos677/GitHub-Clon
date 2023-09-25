@@ -4,7 +4,6 @@
 }
 
 .user-profile {
-  /*text-align: center;*/
   padding: 20px;
   margin-left: 30px;
   border-radius: 8px;
@@ -132,4 +131,38 @@
 .no-repositories {
   margin-top: 100px;
   margin-left: 50px;
+}
+
+@media (max-width: 768px) {
+  .full-user-container {
+    display: grid;
+  }
+
+  .user-profile {
+    top: auto;
+  }
+
+  .user-repos {
+    margin-left: 30px;
+    margin-top: -20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .repo-user-container {
+    display: grid;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .user-repos {
+    padding: 20px;
+    margin-left: 0px;
+    margin-top: -30px;
+  }
+
+  .user-repos h3 {
+    padding-right: 20px;
+  }
 }

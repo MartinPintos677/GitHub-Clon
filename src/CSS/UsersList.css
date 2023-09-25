@@ -20,7 +20,6 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  /*gap: 30px;*/
   padding-right: 30px;
 }
 
@@ -32,10 +31,10 @@
 }
 
 .user-list img {
-  width: 150px; /* Tamaño de la imagen */
-  height: 150px; /* Tamaño de la imagen */
-  border-radius: 50%; /* Borde redondeado para que parezca un círculo */
-  border: 3px solid #fff; /* Borde blanco alrededor de la imagen */
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #fff;
 }
 
 /* Estilo para el enlace al perfil de GitHub */
@@ -47,7 +46,7 @@
 
 /* Estilo para el enlace al perfil de GitHub al pasar el cursor */
 .user-list a:hover {
-  color: #007bff; /* Cambia el color al pasar el cursor */
+  color: #007bff;
 }
 
 /* Estilo para la sección de paginación */
@@ -62,14 +61,15 @@
 
 /* Estilo para los botones de paginación */
 .pagination button {
-  background-color: #007bff; /* Color de fondo */
-  color: #fff; /* Color del texto */
-  border: none; /* Sin borde */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+
   padding: 10px 20px; /* Espaciado interno */
   margin: 0 5px; /* Espacio entre los botones */
-  border-radius: 5px; /* Borde redondeado */
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+  transition: background-color 0.3s ease;
   margin-bottom: 10px;
 }
 
@@ -80,7 +80,7 @@
 
 /* Estilo para el botón de página al pasar el cursor */
 .pagination button:hover {
-  background-color: #0056b3; /* Cambio de color de fondo al pasar el cursor */
+  background-color: #0056b3;
 }
 
 /* Estilos para los botones */
@@ -127,9 +127,13 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
   .user-list h2 {
     margin-left: -40px;
+  }
+
+  .user-list ul {
+    margin-left: -20px;
   }
 
   .input-container {

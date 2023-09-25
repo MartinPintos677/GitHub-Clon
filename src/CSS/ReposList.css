@@ -18,3 +18,14 @@
 .repos-list li {
   text-align: left;
 }
+
+@media (max-width: 420px) {
+  .repos-container {
+    padding-left: 30px;
+    margin-left: 10px;
+  }
+
+  .repos-list h2 {
+    padding-right: 0px;
+  }
+}
