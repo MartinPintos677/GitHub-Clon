@@ -128,12 +128,19 @@
 }
 
 @media (max-width: 420px) {
+  .user-list li {
+    margin: 0px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+  }
+
   .user-list h2 {
+    margin-bottom: 40px;
     margin-left: -40px;
   }
 
   .user-list ul {
-    margin-left: -20px;
+    margin-left: 0px;
   }
 
   .input-container {
