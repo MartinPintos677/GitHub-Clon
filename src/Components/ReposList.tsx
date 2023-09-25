@@ -184,7 +184,7 @@ const GitHubRepos = () => {
             </ul>
           </div>
           {/* Agrega la paginación aquí, similar a la versión anterior */}
-          <div className="pagination mb-3 mt-4">
+          <div className="pagination-repos mb-3 mt-4">
             {Array.from({ length: totalPages }).map((_, index) => (
               <button
                 key={index}
