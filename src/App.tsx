@@ -15,10 +15,8 @@ function App() {
       {/* Ruta predeterminada para usuarios no autenticados */}
       {!state.isLoggedIn && <Route path="/" element={<Default />} />}
 
-      {/* Si el usuario está autenticado, redirige a su página */}
-      {state.isLoggedIn && (
-        <Route path="/" element={<Navigate to={`/user/${state.username}`} />} />
-      )}
+      {/* Si el usuario ya está autenticado, lo redirige a su página y no al login */}
+      {state.isLoggedIn && <Route path="/" element={<UserHome />} />}
 
       {/* Ruta para el usuario autenticado, si no está autenticado lo redirige a Default (login) */}
       <Route
@@ -26,19 +24,19 @@ function App() {
         element={state.isLoggedIn ? <UserHome /> : <Navigate to="/" />}
       />
 
-      {/* Ruta para el listado de usuarios */}
+      {/* Ruta para el listado de usuarios, si no está autenticado lo redirige a Default (login) */}
       <Route
         path="/user/:username/userslist"
         element={state.isLoggedIn ? <UserList /> : <Navigate to="/" />}
       />
 
-      {/* Ruta para el usuario seleccionado */}
+      {/* Ruta para el usuario seleccionado, si no está autenticado lo redirige a Default (login) */}
       <Route
         path="/user/:username/userslist/:id"
         element={state.isLoggedIn ? <SelectedUser /> : <Navigate to="/" />}
       />
 
-      {/* Ruta para el listado de repositorios */}
+      {/* Ruta para el listado de repositorios, si no está autenticado lo redirige a Default (login) */}
       <Route
         path="/user/:username/reposlist"
         element={state.isLoggedIn ? <ReposList /> : <Navigate to="/" />}
