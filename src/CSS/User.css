@@ -146,6 +146,7 @@
   .user-repos {
     margin-left: 30px;
     margin-top: -20px;
+    padding-right: 85px;
   }
 }
 
@@ -153,6 +154,11 @@
   .repo-user-container {
     display: grid;
     gap: 20px;
+  }
+
+  .user-repos {
+    margin-top: -30px;
+    padding-right: 85px;
   }
 }
 
