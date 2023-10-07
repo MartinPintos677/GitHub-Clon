@@ -50,7 +50,7 @@ const LoginForm = () => {
             value={username}
             onChange={e => setUsername(e.target.value)}
             required
-            maxLength={16}
+            maxLength={18}
           />
         </div>
         <div className="input-container-login">
@@ -65,7 +65,7 @@ const LoginForm = () => {
             value={password}
             onChange={e => setPassword(e.target.value)}
             required
-            maxLength={16}
+            maxLength={18}
           />
         </div>
 

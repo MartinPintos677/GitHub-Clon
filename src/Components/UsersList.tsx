@@ -129,26 +129,23 @@ const GitHubUsers = () => {
             <h2>{headerMessage}</h2>
             <ul>
               {currentUsers.map(user => (
-                <li
-                  key={user.login}
-                  className="d-grid justify-content-center align-items-center"
+                <Link
+                  to={`/user/${user.login}/userslist/${user.login}`}
+                  target="_blank"
                 >
-                  <Link
-                    to={`/user/${user.login}/userslist/${user.login}`}
-                    target="_blank"
-                    // Enlace para usuario seleccionado en imagen
+                  <li
+                    key={user.login}
+                    className="d-grid justify-content-center align-items-center mb-4"
                   >
-                    <img src={user.avatar_url} alt={`${user.login}'s avatar`} />
-                  </Link>
+                    <img
+                      className="mb-2"
+                      src={user.avatar_url}
+                      alt={`${user.login}'s avatar`}
+                    />
 
-                  <Link
-                    className="mt-2 mb-3"
-                    to={`/user/${user.login}/userslist/${user.login}`}
-                    target="_blank" // Enlace para usuario seleccionado en nombre
-                  >
                     {user.login}
-                  </Link>
-                </li>
+                  </li>
+                </Link>
               ))}
             </ul>
           </div>
