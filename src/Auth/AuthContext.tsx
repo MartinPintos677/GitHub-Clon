@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useReducer,
-  Dispatch,
-  ReactNode
-} from 'react'
+import React, { createContext, useContext, useReducer, Dispatch } from 'react'
 
 // Define el tipo de estado y las acciones
 type AuthState = {
@@ -20,7 +14,7 @@ type AuthAction =
 interface AuthContextType {
   state: AuthState
   dispatch: Dispatch<AuthAction>
-  login: (username: string) => void // Agrega la función 'login' aquí
+  login: (username: string) => void
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
@@ -35,7 +29,7 @@ export const useAuth = () => {
 
 // Define el tipo para children
 interface AuthProviderProps {
-  children: ReactNode
+  children: React.ReactNode // La prop children ya está tipada como React.ReactNode
 }
 
 // Define el componente AuthProvider
