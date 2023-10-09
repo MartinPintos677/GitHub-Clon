@@ -81,7 +81,7 @@ const User = () => {
           </div>
         </div>
 
-        <div className="col user-repos">
+        <div className="user-repos">
           <h3>Repositorios de {state.username}</h3>
           <ul>
             <hr className="mt-4" />
