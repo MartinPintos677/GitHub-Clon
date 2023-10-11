@@ -96,16 +96,16 @@ const SelectedUser = () => {
 
   // Agregamos una función para manejar la búsqueda en tiempo real
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
-    setSearchQuery(value)
+    const text = e.target.value
+    setSearchQuery(text)
 
     // Si el campo de búsqueda está vacío, mostrar todos los repositorios nuevamente
-    if (value === '') {
+    if (text === '') {
       setUserRepos(userReposOriginal) // Restaura la lista original de repositorios
     } else {
       // Filtrar repositorios en función del valor del campo de búsqueda
       const filteredRepos = userReposOriginal.filter(repo =>
-        repo.name.toLowerCase().includes(value.toLowerCase())
+        repo.name.toLowerCase().includes(text.toLowerCase())
       )
       setUserRepos(filteredRepos)
     }
