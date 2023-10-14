@@ -1,6 +1,6 @@
 import ReposList from '../Components/ReposList'
 
-const User = () => {
+const ListRepos = () => {
   return (
     <div>
       <ReposList />
@@ -8,4 +8,4 @@ const User = () => {
   )
 }
 
-export default User
+export default ListRepos

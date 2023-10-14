@@ -196,7 +196,7 @@ const GitHubRepos = () => {
             ))}
           </div>
         </div>
-        {/* Renderiza el modal cuando está abierto */}
+        {/* Renderiza el modal */}
         {isModalOpen && selectedRepo && (
           <RepoModal repo={selectedRepo} onClose={handleCloseModal} />
         )}
